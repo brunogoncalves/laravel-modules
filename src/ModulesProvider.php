@@ -1,4 +1,4 @@
-<?php namespace LaravelModules;
+<?php namespace BrunoGoncalves\LaravelModules;
 
 use Illuminate\Support\ServiceProvider;
 

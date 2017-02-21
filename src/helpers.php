@@ -9,6 +9,6 @@ if (!function_exists('load_module')) {
      */
     function load_module($class)
     {
-        LaravelModules\ModulesProvider::$modules[] = $class;
+        BrunoGoncalves\LaravelModules\ModulesProvider::$modules[] = $class;
     }
 }
