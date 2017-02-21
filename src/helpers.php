@@ -9,9 +9,6 @@ if (!function_exists('load_module')) {
      */
     function load_module($class)
     {
-        $list = app('laravel-modules');
-        $list[] = $class;
-
-        app()->instance('laravel-modules', $list);
+        LaravelModules\ModulesProvider::$modules[] = $class;
     }
 }

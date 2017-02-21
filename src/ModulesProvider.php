@@ -4,6 +4,8 @@ use Illuminate\Support\ServiceProvider;
 
 class ModulesProvider extends ServiceProvider
 {
+    public static $modules = [];
+
     public function register()
     {
         $this->app->instance('laravel-modules', []);
@@ -11,8 +13,7 @@ class ModulesProvider extends ServiceProvider
 
     public function boot()
     {
-        $list = $this->app['laravel-modules'];
-        foreach ($list as $class) {
+        foreach (self::$modules as $class) {
             $this->app->register($class);
         }
     }
