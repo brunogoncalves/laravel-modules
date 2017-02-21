@@ -1,11 +1,13 @@
 <?php
 
-if (!function_exists('modules')) {
+if (!function_exists('load_module')) {
 
     /**
+     * Carregar e iniciar modulo.
+     *
      * @param $class
      */
-    function modules($class)
+    function load_module($class)
     {
         $list = app('laravel-modules');
         $list[] = $class;
