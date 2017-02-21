@@ -1,0 +1,30 @@
+{
+    "name"       : "brunogoncalves/laravel-modules",
+    "description": "Laravel Modules",
+    "keywords"   : ["php", "laravel", "modules", "theme"],
+    "license"    : "GPL v.3",
+    "type"       : "library",
+
+    "authors": [
+        {
+            "name"    : "Bruno GonCalves",
+            "email"   : "bugotech@gmail.com",
+            "homepage": "https://github.com/brunogoncalves"
+        }
+    ],
+
+    "require": {
+        "laravel/laravel": "5.4.*"
+    },
+
+    "autoload": {
+
+        "psr-4": {
+            "LaravelModules\\": "src/"
+        },
+
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
