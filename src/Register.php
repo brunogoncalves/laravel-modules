@@ -37,7 +37,7 @@ class Register
     public static function autoload()
     {
         // Vendor path
-        $dir_base = realpath(__DIR__ . '/../../');
+        $dir_base = realpath(__DIR__ . '/../../../');
 
         $finder = new Finder();
         $finder->files()
