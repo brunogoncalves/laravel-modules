@@ -42,7 +42,7 @@ class Register
         $finder = new Finder();
         $finder->files()
             ->ignoreVCS(true)
-            ->name('*.yml')
+            ->name('.autoservice.yml')
             ->exclude('Tests')
             ->exclude('tests')
             ->in($dir_base);
