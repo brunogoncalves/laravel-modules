@@ -42,6 +42,7 @@ class Register
         $finder = new Finder();
         $finder->files()
             ->ignoreVCS(true)
+            ->ignoreDotFiles(false)
             ->name('.autoservice.yml')
             ->exclude('Tests')
             ->exclude('tests')
