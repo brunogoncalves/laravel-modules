@@ -30,6 +30,7 @@ class Register
     public static function all()
     {
         $sorted = ksort(self::$modules);
+
         return array_values($sorted);
     }
 
