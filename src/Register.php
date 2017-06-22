@@ -13,11 +13,13 @@ class Register
      * Registrar novo módulo.
      *
      * @param $class
+     * @param int $priority
      */
-    public static function register($class)
+    public static function register($class, $priority = 0)
     {
         if (! in_array($class, self::$modules)) {
-            self::$modules[] = $class;
+            $key = sprintf('%s:%s', $priority, $class);
+            self::$modules[$key] = $class;
         }
     }
 
@@ -27,7 +29,8 @@ class Register
      */
     public static function all()
     {
-        return self::$modules;
+        $sorted = ksort(self::$modules);
+        return array_values($sorted);
     }
 
     /**
@@ -63,6 +66,7 @@ class Register
         $yml = Yaml::parse(file_get_contents($file->getRealPath()), true);
 
         $service = Arr::get($yml, 'auto-service');
+        $priority = intval(Arr::get($yml, 'priority', 0));
         if (is_null($service)) {
             return;
         }
@@ -70,7 +74,7 @@ class Register
         $list = Arr::get($yml, 'services', []);
         foreach ($list as $list_class) {
             if (is_string($list_class)) {
-                self::register($list_class);
+                self::register($list_class, $priority);
             }
         }
     }
