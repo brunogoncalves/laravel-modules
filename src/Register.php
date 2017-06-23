@@ -29,7 +29,7 @@ class Register
      */
     public static function all()
     {
-        ksort(self::$modules);
+        krsort(self::$modules);
 
         return array_values(self::$modules);
     }
