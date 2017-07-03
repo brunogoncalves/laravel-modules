@@ -18,6 +18,7 @@ class Register
     public static function register($class, $priority = 0)
     {
         if (! in_array($class, self::$modules)) {
+            $priority = str_pad($priority, 4, '0', STR_PAD_LEFT);
             $key = sprintf('%s:%s', $priority, $class);
             self::$modules[$key] = $class;
         }
