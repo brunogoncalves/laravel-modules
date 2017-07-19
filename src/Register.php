@@ -72,6 +72,7 @@ class Register
         if (is_null($service)) {
             return;
         }
+        $priority = str_pad($priority, 4, '0', STR_PAD_LEFT);
 
         $list = Arr::get($yml, 'services', []);
         foreach ($list as $i => $list_class) {
