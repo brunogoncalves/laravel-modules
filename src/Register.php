@@ -75,10 +75,12 @@ class Register
         $priority = str_pad($priority, 4, '0', STR_PAD_LEFT);
 
         $list = Arr::get($yml, 'services', []);
-        foreach ($list as $i => $list_class) {
+        $count = count($list);
+        foreach ($list as $list_class) {
             if (is_string($list_class)) {
-                $i_priority = sprintf('%s.%s', $priority, str_pad($i + 1, 2, '0', STR_PAD_LEFT));
+                $i_priority = sprintf('%s.%s', $priority, str_pad($count, 2, '0', STR_PAD_LEFT));
                 self::register($list_class, $i_priority);
+                $count -= 1;
             }
         }
     }
